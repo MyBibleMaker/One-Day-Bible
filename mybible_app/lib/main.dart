@@ -10,7 +10,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'bible_maker',
       initialRoute: '/',
-      theme: ThemeData(),
+      theme: ThemeData(
+        fontFamily: "NanumGothic",
+      ),
       routes: {
         '/': (context) => StartPage(),
         '/menu': (context) => MenuPage(),
@@ -29,7 +31,7 @@ class _StartPageState extends State<StartPage> {
 
   void initState(){
     super.initState();
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/menu');
     });}
 
