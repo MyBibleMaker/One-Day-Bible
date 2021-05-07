@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       theme: ThemeData(
         fontFamily: "NanumGothic",
+        backgroundColor: Colors.white,
       ),
       routes: {
         '/': (context) => StartPage(),
@@ -28,15 +29,16 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   @override
-
-  void initState(){
+  void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/menu');
-    });}
+      // Navigator.pushReplacementNamed(context, '/menu');
+    });
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -45,13 +47,19 @@ class _StartPageState extends State<StartPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 250,
-                width: 250,
-                color: Colors.black,
-                child: Text("대충 그림 넣을 곳",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: MediaQuery.of(context).size.height * 0.02)),
+                child: Container(
+                  height: MediaQuery.of(context).size.width*1,
+                  width:  MediaQuery.of(context).size.width*1,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      alignment: Alignment.center,
+                      image: AssetImage(
+                        "image/bible2.jpg",
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
               ),
             ],
           ),
