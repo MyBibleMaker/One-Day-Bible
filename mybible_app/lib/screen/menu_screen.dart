@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mybible_app/screen/contents/all_screen.dart';
+import 'package:mybible_app/screen/contents/bibleQuiz.dart';
+import 'package:mybible_app/screen/contents/bibleStory.dart';
+import 'package:mybible_app/screen/contents/bibleWord.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -24,11 +28,32 @@ class _MenuPageState extends State<MenuPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Container(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Row(
+            Flexible(
+              flex: 1,
+                child: Container(
+                  height: 100,
+              width: 100,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  alignment: Alignment.center,
+                  image: AssetImage(
+                    "image/bible2.jpg",
+                  ),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )),
+            SizedBox(
+              height: 100,
+            ),
+            Flexible(
+              flex: 7,
+              child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 IconButton(
@@ -40,7 +65,7 @@ class _MenuPageState extends State<MenuPage> {
                     }),
                 InkWell(
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.6,
+                    height: MediaQuery.of(context).size.height * 0.43,
                     width: MediaQuery.of(context).size.width * 0.7,
                     child: Card(
                       elevation: 5,
@@ -56,8 +81,8 @@ class _MenuPageState extends State<MenuPage> {
                                   menuInform[pageNum]["title"],
                                   style: TextStyle(
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.028,
+                                      MediaQuery.of(context).size.height *
+                                          0.028,
                                       fontWeight: FontWeight.w100),
                                 ),
                               ],
@@ -88,7 +113,9 @@ class _MenuPageState extends State<MenuPage> {
                     ),
                   ),
                   onTap: (){
-                    print(pageNum);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                    pageNum == 0 ? Word(): pageNum == 1? Quiz() : Story()
+                    ));
                   },
                 ),
                 IconButton(icon: Icon(Icons.arrow_right), onPressed: () {
@@ -97,7 +124,19 @@ class _MenuPageState extends State<MenuPage> {
                   });
                 }),
               ],
+            ),),
+            SizedBox(
+              height: 80,
             ),
+            Flexible(
+              flex: 1,
+                child: IconButton(
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>All_screen()));
+                  },
+                  icon: Icon(Icons.view_headline),
+                  iconSize: 50,
+                )),
           ],
         ),
       ),

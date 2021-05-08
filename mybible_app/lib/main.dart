@@ -31,7 +31,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 10), () {
+    Future.delayed(Duration(seconds: 3), () {
       Navigator.pushReplacementNamed(context, '/menu');
     });
   }
