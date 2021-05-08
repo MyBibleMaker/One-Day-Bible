@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mybible_app/screen/contents/bibleQuizSecond.dart';
 
 import 'screen/menu_screen.dart';
 

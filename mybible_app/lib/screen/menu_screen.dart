@@ -3,6 +3,7 @@ import 'package:mybible_app/screen/contents/all_screen.dart';
 import 'package:mybible_app/screen/contents/bibleQuiz.dart';
 import 'package:mybible_app/screen/contents/bibleStory.dart';
 import 'package:mybible_app/screen/contents/bibleWord.dart';
+import 'package:mybible_app/screen/contents/bibleQuizSecond.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -49,7 +50,7 @@ class _MenuPageState extends State<MenuPage> {
               ),
             )),
             SizedBox(
-              height: 100,
+              height: 80,
             ),
             Flexible(
               flex: 7,
@@ -73,7 +74,7 @@ class _MenuPageState extends State<MenuPage> {
                         children: [
                           //메뉴의 제목
                           Flexible(
-                            flex: 1,
+                            flex: 2,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
