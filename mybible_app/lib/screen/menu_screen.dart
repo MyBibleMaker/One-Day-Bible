@@ -64,7 +64,19 @@ class _MenuPageState extends State<MenuPage> {
                             ),
                           ),
                           // 그림 넣을 곳
-                          Flexible(flex: 8, child: Container()),
+                          Flexible(flex: 8, child:Container(
+                            height: 300,
+                            width: 300,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                alignment: Alignment.center,
+                                image: AssetImage(
+                                  "image/bible$pageNum.jpg",
+                                ),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),),
                           // 메뉴에 대한 설명
                           Flexible(
                               flex: 2,
