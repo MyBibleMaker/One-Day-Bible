@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:mybible_app/api.dart';
 
 class Word extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _WordState extends State<Word> {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-              backgroundColor: Colors.blueAccent,
+              backgroundColor: Colors.grey,
               iconTheme: IconThemeData(
                   color: Colors.white
               )
@@ -41,7 +42,7 @@ class _WordState extends State<Word> {
                   Container(
                     height: size.height*0.12-27,
                     decoration: BoxDecoration(
-                        color: Colors.blueAccent,
+                        color: Colors.grey,
                         borderRadius: BorderRadius.only(
                           bottomLeft:Radius.circular(36),
                           bottomRight:Radius.circular(36),
@@ -62,7 +63,7 @@ class _WordState extends State<Word> {
                          BoxShadow(
                            offset: Offset(0,4),
                             blurRadius:50,
-                           color: Colors.lightBlueAccent
+                           color: Colors.grey
                          )
                        ]
                      ),
@@ -98,31 +99,45 @@ class _WordState extends State<Word> {
               height: 10,
             ),
             Flexible(
-              flex: 3,
-                child:ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      width: 160.0,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.orange,
-                    )
-                  ],
+              flex: 4,
+                child:FutureBuilder(
+                  future: Api().getBibleWord(),
+                  builder: (BuildContext contest,AsyncSnapshot snapshot){
+                    return ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      shrinkWrap: true,
+                      itemCount: 10,
+                      itemBuilder: (BuildContext context, int index){
+                        return Container(
+                          width: 150,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage("image/bible.png"),
+                            )
+                          ),
+                          child: InkWell(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                Text("<${index}>",
+                                  style:TextStyle(
+                                      color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),),
+                              ],
+                            ),
+                            onTap: (){
+                              Navigator.push(context,
+                                  MaterialPageRoute(
+                                      builder: (context)=> Bible_page(context,index)));
+                            },
+                          ),
+                        );
+                      }
+                    );
+                  },
                 )),
             SizedBox(
               height: 10,
@@ -144,40 +159,82 @@ class _WordState extends State<Word> {
               height: 10,
             ),
             Flexible(
-              flex: 3,
-                child:ListView(
-                  scrollDirection: Axis.horizontal,
-                  children: <Widget>[
-                    Container(
-                      width: 160.0,
-                      color: Colors.red,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.blue,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.green,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.yellow,
-                    ),
-                    Container(
-                      width: 160.0,
-                      color: Colors.orange,
-                    )
-                  ],
-                ) ),
+                flex: 4,
+                child:FutureBuilder(
+                  future: Api().getBibleWord(),
+                  builder: (BuildContext contest,AsyncSnapshot snapshot){
+                    return ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: 10,
+                        itemBuilder: (BuildContext context, int index){
+                          return Container(
+                            width: 150,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                  image: AssetImage("image/bible.png"),
+                                )
+                            ),
+                            child: InkWell(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Text("<${index}>",
+                                    style:TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),),
+                                ],
+                              ),
+                              onTap: (){
+                                Navigator.push(context,
+                                    MaterialPageRoute(
+                                        builder: (context)=> Bible_page(context,index)));
+                              },
+                            ),
+                          );
+                        }
+                    );
+                  },
+                )),
 
       ]),
     )
     );
 
   }
-}
 
+  Widget Bible_page(BuildContext context, int name){
+    return MaterialApp(
+      theme: ThemeData(
+          appBarTheme: AppBarTheme(
+              backgroundColor: Colors.grey,
+              iconTheme: IconThemeData(
+                  color: Colors.white
+              )
+          )
+      ),
+      home: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+          elevation: 0,
+          leading: IconButton(
+              onPressed: (){
+                Navigator.pop(context);
+              }, icon: Icon(Icons.arrow_back)),
+          title: Text("${name}",
+            style: TextStyle(color: Colors.white),),
+        ),
+        body: Center(
+          child: Text("das"),
+        ),
+      ),
+    );
+  }
+
+}
 class CustomShape extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {

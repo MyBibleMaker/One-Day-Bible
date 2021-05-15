@@ -32,6 +32,7 @@ flutter:
     - image/003.png
     - image/004.png
     - image/005.png
+    - image/bible.png
 fonts:
   - familly: NanumGothic
     fonts:
