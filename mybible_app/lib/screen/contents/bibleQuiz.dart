@@ -8,8 +8,20 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   @override
+  int num;
+  int num2;
+
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    num = 0;
+    num2 = 1;
+  }
+
+  @override
   Widget build(BuildContext context) {
-    List<String> type = ['쉬움', '중간', '어려움', '최강어려움', '넌센스'];
+    List<String> type = ['성졸 대비', '넌센스'];
+
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
@@ -29,47 +41,93 @@ class _QuizState extends State<Quiz> {
             style: TextStyle(color: Colors.black),
           ),
         ),
-        body: ListView.builder(
-            itemCount: type.length,
-            itemBuilder: (BuildContext context, index) {
-              return Container(
+        body: Center(
+          child: Container(
+            width: MediaQuery.of(context).size.width * 0.8,
+            height: MediaQuery.of(context).size.height * 0.7,
+            child: InkWell(
+              child: Card(
+                elevation: 6,
                 child: Column(
                   children: [
-                    InkWell(
+                    Flexible(
+                      flex: 2,
                       child: Container(
-                        width: 200,
-                        height: 200,
+                        height: 10000,
+                        child: Container(),
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             alignment: Alignment.center,
                             image: AssetImage(
-                              "image/00${index + 1}.png",
+                              "image/00$num2.png",
                             ),
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
-                      onTap: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => QuizSecond(),
-                          settings: RouteSettings(
-                            arguments: index,
-                          ),
+                    ),
+                    Flexible(
+                      flex: 1,
+                      child: Container(
+                        height: 1000,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            InkWell(
+                              child: Icon(Icons.arrow_left),
+                              onTap: () {
+                                setState(() {
+                                  if (num == type.length - 1) {
+                                    num = 0;
+                                  } else {
+                                    num++;
+                                  }
+                                  print(num);
+                                  if(  num2 == 1 ){
+                                    num2 =5;
+                                  }
+                                  else
+                                    num2--;
+                                });
+                              },
+                            ),
+                            Text(
+                              type[num],
+                              style: TextStyle(
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.024,
+                                  fontWeight: FontWeight.w100),
+                            ),
+                            InkWell(
+                              child: Icon(Icons.arrow_right),
+                              onTap: () {
+                                setState(() {
+                                  if (num == type.length - 1) {
+                                    num = 0;
+                                  } else {
+                                    num++;
+                                  }
+                                  print(num);
+                                  if(  num2 == 5 ){
+                                    num2 =1;
+                                  }
+                                  else
+                                    num2++;
+                                });
+                              },
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    Text(
-                      type[index],
-                      style: TextStyle(fontSize: 16),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
                   ],
                 ),
-              );
-            }),
+              ),
+              onTap: (){
+              },
+            ),
+          ),
+        ),
       ),
     );
   }
