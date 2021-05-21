@@ -83,10 +83,9 @@ class _QuizState extends State<Quiz> {
                                     num++;
                                   }
                                   print(num);
-                                  if(  num2 == 1 ){
-                                    num2 =5;
-                                  }
-                                  else
+                                  if (num2 == 1) {
+                                    num2 = 5;
+                                  } else
                                     num2--;
                                 });
                               },
@@ -108,10 +107,9 @@ class _QuizState extends State<Quiz> {
                                     num++;
                                   }
                                   print(num);
-                                  if(  num2 == 5 ){
-                                    num2 =1;
-                                  }
-                                  else
+                                  if (num2 == 5) {
+                                    num2 = 1;
+                                  } else
                                     num2++;
                                 });
                               },
@@ -123,7 +121,10 @@ class _QuizState extends State<Quiz> {
                   ],
                 ),
               ),
-              onTap: (){
+              onTap: () {
+                num == 0
+                    ? Navigator.pushReplacementNamed(context, '/second')
+                    : Navigator.pushReplacementNamed(context, '/third');
               },
             ),
           ),

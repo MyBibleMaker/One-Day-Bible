@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mybible_app/screen/contents/bibleQuiz.dart';
 import 'package:mybible_app/screen/contents/bibleQuizSecond.dart';
+import 'package:mybible_app/screen/contents/bibleQuizThird.dart';
 
 import 'screen/menu_screen.dart';
 
@@ -18,6 +20,9 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => StartPage(),
         '/menu': (context) => MenuPage(),
+        '/quiz': (context) => Quiz(),
+        '/second' : (context) =>QuizSecond(),
+        '/third': (context) => QuizThird(),
       },
     );
   }
