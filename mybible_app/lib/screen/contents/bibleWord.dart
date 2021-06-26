@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:mybible_app/api.dart';
+import 'package:mybible_app/Api/api.dart';
 
 class Word extends StatefulWidget {
   @override
@@ -101,7 +101,7 @@ class _WordState extends State<Word> {
             Flexible(
               flex: 4,
                 child:FutureBuilder(
-                  future: Api().getBibleWord(),
+                  future: Api().getBibleWord("","","",""),
                   builder: (BuildContext contest,AsyncSnapshot snapshot){
                     return ListView.builder(
                       scrollDirection: Axis.horizontal,
@@ -161,7 +161,7 @@ class _WordState extends State<Word> {
             Flexible(
                 flex: 4,
                 child:FutureBuilder(
-                  future: Api().getBibleWord(),
+                  future: Api().getBibleWord("","","",""),
                   builder: (BuildContext contest,AsyncSnapshot snapshot){
                     return ListView.builder(
                         scrollDirection: Axis.horizontal,
