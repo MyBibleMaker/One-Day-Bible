@@ -24,7 +24,6 @@ class _QuizSecondState extends State<QuizSecond> {
         ),
       ),
       body: Container(
-
       ),
     );
   }

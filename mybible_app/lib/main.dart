@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:mybible_app/screen/contents/bibleQuiz.dart';
 import 'package:mybible_app/screen/contents/bibleQuizSecond.dart';
 import 'package:mybible_app/screen/contents/bibleQuizThird.dart';
-
 import 'screen/menu_screen.dart';
 
 void main() => runApp(MyApp());
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => StartPage(),
         '/menu': (context) => MenuPage(),
         '/quiz': (context) => Quiz(),
-        '/second' : (context) =>QuizSecond(),
+        '/second': (context) => QuizSecond(),
         '/third': (context) => QuizThird(),
       },
     );
@@ -54,8 +53,8 @@ class _StartPageState extends State<StartPage> {
             children: [
               Container(
                 child: Container(
-                  height: MediaQuery.of(context).size.width*1,
-                  width:  MediaQuery.of(context).size.width*1,
+                  height: MediaQuery.of(context).size.width * 1,
+                  width: MediaQuery.of(context).size.width * 1,
                   decoration: BoxDecoration(
                     image: DecorationImage(
                       alignment: Alignment.center,
