@@ -322,8 +322,6 @@ class _WordState extends State<Word> {
 
   }
 
-
-
   Widget Seconde_page(name,bible_index){
     return MaterialApp(
       theme: ThemeData(
