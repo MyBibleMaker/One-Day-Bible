@@ -12,11 +12,11 @@ void main(){
   group('api_test',()
   {
     test('bible_api_test',() async{
-      // var url= Uri.parse("http://ibibles.net/quote.php?kor-mat/5:3-12") ;
-      // var response = await http.get(url);
-      // String htmlToParse = response.body;
-      String result= await Api().getBibleWord("mat", "5", "3", "12");
-
+      List<String> result = List<String>();
+      //ge =창세 exo=출애굽기 ruth=룻기 obad=오바댜
+      //mat=마태볶 mark=마가볶음 phi=빌립보서 2th=데살로니가후서
+      result=await Api().getBibleWord("ruth", "1", "0", "22");
+      print(result);
 
     });
   });
