@@ -4,6 +4,7 @@ import 'package:mybible_app/screen/contents/bibleQuiz.dart';
 import 'package:mybible_app/screen/contents/bibleStory.dart';
 import 'package:mybible_app/screen/contents/bibleWord.dart';
 import 'package:mybible_app/screen/contents/bibleQuizSecond.dart';
+import 'package:mybible_app/screen/contents/More_story.dart';
 
 class MenuPage extends StatefulWidget {
   @override
@@ -23,7 +24,8 @@ class _MenuPageState extends State<MenuPage> {
     {"title": "성경 말씀", "pic": "", "context": "원하는 구절을 찾아보세요!"},
     {"title": "성경 퀴즈", "pic": "", "context": "성경을 얼마나 알고 있나요?"},
     {"title": "성경 이야기", "pic": "", "context": "쉬운 성경 이야기"},
-    {"title": "아직 생각 중", "pic": "", "context": "?"}
+    {"title": "성경 더 알아보기", "pic": "", "context": "성경을 더 알아보자!"},
+    //{"title": "아직 생각 중", "pic": "", "context": "?"}
   ];
 
   @override
@@ -115,13 +117,13 @@ class _MenuPageState extends State<MenuPage> {
                   ),
                   onTap: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                    pageNum == 0 ? Word(): pageNum == 1? Quiz() : Story()
+                    pageNum == 0 ? Word(): pageNum == 1? Quiz(): pageNum== 2? Story():pageNum==3?More():null
                     ));
                   },
                 ),
                 IconButton(icon: Icon(Icons.arrow_right), onPressed: () {
                   setState(() {
-                    pageNum==3?pageNum=0:pageNum++;
+                    pageNum==3? pageNum=0:pageNum++;
                   });
                 }),
               ],
