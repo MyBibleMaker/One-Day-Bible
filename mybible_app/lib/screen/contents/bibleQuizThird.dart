@@ -24,7 +24,6 @@ class _QuizThirdState extends State<QuizThird> {
         ),
       ),
       body: Container(
-
       ),
     );
   }
