@@ -36,7 +36,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 5), () {
       Navigator.pushReplacementNamed(context, '/menu');
     });
   }
@@ -67,6 +67,17 @@ class _StartPageState extends State<StartPage> {
                 ),
               ),
             ],
+          ),
+          Container(
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Center(
+                  child: Text(
+                "내가 진실로 진실로 너희에게 이르노니\n한 알의 밀이 땅에 떨어져 죽지 아니하면\n한 알 그대로 있고 죽으면 많은 열매를 맺느니라\n\n요 12:24",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16),
+              )),
+            ),
           ),
         ],
       )),
