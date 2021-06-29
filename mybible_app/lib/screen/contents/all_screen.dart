@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mybible_app/screen/contents/bibleQuiz.dart';
 import 'package:mybible_app/screen/contents/bibleStory.dart';
 import 'package:mybible_app/screen/contents/bibleWord.dart';
-
+import 'package:mybible_app/screen/contents/More_story.dart';
 class All_screen extends StatefulWidget {
   @override
   _All_screenState createState() => _All_screenState();
@@ -11,7 +11,7 @@ class All_screen extends StatefulWidget {
 class _All_screenState extends State<All_screen> {
   @override
   Widget build(BuildContext context) {
-    var list =["성경 말씀","성경 퀴즈","성경 이야기"];
+    var list =["성경 말씀","성경 퀴즈","성경 이야기","성경 더 알아보기"];
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -30,7 +30,7 @@ class _All_screenState extends State<All_screen> {
               flex: 9,
               child: GridView.count(
                 crossAxisCount: 2,
-                children: List.generate(3, (index) {
+                children: List.generate(4, (index) {
                   return Column(
                     children: [
                       Flexible(
@@ -40,7 +40,7 @@ class _All_screenState extends State<All_screen> {
                             iconSize: 300,
                             onPressed: (){
                               Navigator.push(context,MaterialPageRoute(builder: (context)=>
-                              index == 0? Word():index == 1 ? Quiz() :Story()
+                              index == 0? Word():index == 1 ? Quiz() :index ==2? Story():index==3? More():null
                               ));
                             },
                           )),
