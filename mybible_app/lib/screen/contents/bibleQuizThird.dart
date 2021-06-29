@@ -24,6 +24,9 @@ class _QuizThirdState extends State<QuizThird> {
         ),
       ),
       body: Container(
+        child: Center(
+          child: Text("업데이트 예정입니다"),
+        ),
       ),
     );
   }

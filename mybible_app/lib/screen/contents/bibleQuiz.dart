@@ -20,7 +20,7 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> type = ['성졸 대비', '넌센스'];
+    List<String> type = ['인물 퀴즈', '넌센스'];
 
     return MaterialApp(
       theme: ThemeData(
