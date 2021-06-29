@@ -1,8 +1,11 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mybible_app/Api/Provider.dart';
 import 'package:mybible_app/screen/contents/bibleStorySecond.dart';
 
+import 'package:http/http.dart' as http;
 class Story extends StatefulWidget {
   @override
   _StoryState createState() => _StoryState();
