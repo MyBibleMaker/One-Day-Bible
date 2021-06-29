@@ -14,22 +14,21 @@ class _MoreState extends State<More> {
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-              backgroundColor: Colors.grey,
-              iconTheme: IconThemeData(
-                  color: Colors.white
-              )
-          )
-      ),
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black))),
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           elevation: 0,
           leading: IconButton(
-              onPressed: (){
+              onPressed: () {
                 Navigator.pop(context);
-              }, icon: Icon(Icons.arrow_back)),
-          title: Text("더 알아보기",
-            style: TextStyle(color: Colors.white),),
+              },
+              icon: Icon(Icons.arrow_back)),
+          title: Text(
+            "더 알아보기",
+            style: TextStyle(color: Colors.black),
+          ),
         ),
         body: ListView.builder(
           itemCount: 5,
@@ -50,16 +49,13 @@ class _MoreState extends State<More> {
         ),
       );
   }
+
   Widget Seconde_page(String name ,int index){
     return MaterialApp(
       theme: ThemeData(
           appBarTheme: AppBarTheme(
-              backgroundColor: Colors.grey,
-              iconTheme: IconThemeData(
-                  color: Colors.white
-              )
-          )
-      ),
+              backgroundColor: Colors.white,
+              iconTheme: IconThemeData(color: Colors.black))),
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -69,13 +65,13 @@ class _MoreState extends State<More> {
                 Navigator.pop(context);
               }, icon: Icon(Icons.arrow_back)),
           title: Text(name,
-            style: TextStyle(color: Colors.white),),
+            style: TextStyle(color: Colors.black),),
         ),
         body: Container(
           child: PhotoView(
             imageProvider: AssetImage("image/more${index}.jpeg"),
             backgroundDecoration: BoxDecoration(
-                color: Colors.grey
+                color: Colors.white
             ),
             minScale: PhotoViewComputedScale.contained * 1,
             maxScale: PhotoViewComputedScale.covered * 2,
@@ -85,7 +81,4 @@ class _MoreState extends State<More> {
       ),
     );
   }
-
-
-
 }
